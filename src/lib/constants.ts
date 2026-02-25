@@ -100,28 +100,7 @@ export const WEDDING = {
   ],
 };
 
-/**
- * GALLERY PHOTOS
- * ─────────────────────────────────────────────────────────────────
- * Drop your photos into:  public/photos/
- * Name them 1.jpeg, 2.jpeg, 3.jpeg … in any order you like.
- * Supported formats: .jpeg  .jpeg  .png  .webp
- * ─────────────────────────────────────────────────────────────────
- */
-export const GALLERY_IMAGES = [
-  { src: "/photos/1.jpeg",  alt: "Ram & Anshika" },
-  { src: "/photos/2.jpeg",  alt: "Ram & Anshika" },
-  { src: "/photos/3.jpeg",  alt: "Ram & Anshika" },
-  { src: "/photos/4.jpeg",  alt: "Ram & Anshika" },
-  { src: "/photos/5.jpeg",  alt: "Ram & Anshika" },
-  { src: "/photos/6.jpeg",  alt: "Ram & Anshika" },
-  { src: "/photos/7.jpeg",  alt: "Ram & Anshika" },
-  { src: "/photos/8.jpeg",  alt: "Ram & Anshika" },
-  { src: "/photos/9.jpeg",  alt: "Ram & Anshika" },
-  { src: "/photos/10.jpeg", alt: "Ram & Anshika" },
-  { src: "/photos/11.jpeg", alt: "Ram & Anshika" },
-  { src: "/photos/12.jpeg", alt: "Ram & Anshika" },
-];
+export const COUPLE_PHOTO = "/photos/main.jpeg";
 
 export const MUSIC_TRACKS = [
   {

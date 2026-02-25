@@ -18,7 +18,7 @@ const PAGES = [
   GalleryCardPage,
 ];
 
-const LABELS = ["Cover", "Invitation", "Ceremonies", "Our Story", "Venue", "Gallery"];
+const LABELS = ["Cover", "Invitation", "Ceremonies", "Our Story", "Venue", "Blessings"];
 
 const CONTENT_MIN_H = 540;
 /** How many px the rod image overlaps the parchment edge — tuned to match image height */

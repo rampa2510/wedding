@@ -1,78 +1,17 @@
 "use client";
-import { useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { GALLERY_IMAGES } from "@/lib/constants";
-import GalleryLightbox from "@/components/gallery/GalleryLightbox";
-
-function PhotoTile({
-  img,
-  index,
-  onClick,
-}: {
-  img: { src: string; alt: string };
-  index: number;
-  onClick: () => void;
-}) {
-  const [errored, setErrored] = useState(false);
-
-  return (
-    <motion.button
-      initial={{ opacity: 0, scale: 0.92 }}
-      animate={{ opacity: 1, scale: 1 }}
-      transition={{ delay: 0.1 + index * 0.04 }}
-      onClick={errored ? undefined : onClick}
-      style={{
-        aspectRatio: "1",
-        borderRadius: 10,
-        overflow: "hidden",
-        border: "1.5px solid rgba(139,90,20,0.2)",
-        cursor: errored ? "default" : "pointer",
-        padding: 0,
-        background: "rgba(139,90,20,0.08)",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-      }}
-      whileHover={errored ? {} : { scale: 1.04, boxShadow: "0 0 0 2px #D4A843" }}
-    >
-      {errored ? (
-        /* Placeholder shown while photo hasn't been added yet */
-        <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 4 }}>
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="rgba(139,90,20,0.4)" strokeWidth="1.5">
-            <rect x="3" y="3" width="18" height="18" rx="2" />
-            <circle cx="8.5" cy="8.5" r="1.5" />
-            <path d="M21 15l-5-5L5 21" />
-          </svg>
-          <span style={{ fontSize: 7, color: "rgba(139,90,20,0.4)", letterSpacing: "0.05em" }}>
-            add photo
-          </span>
-        </div>
-      ) : (
-        <Image
-          src={img.src}
-          alt={img.alt}
-          width={200}
-          height={200}
-          className="w-full h-full object-cover"
-          unoptimized
-          onError={() => setErrored(true)}
-        />
-      )}
-    </motion.button>
-  );
-}
+import { COUPLE_PHOTO, WEDDING } from "@/lib/constants";
 
 const INK = "#1E0F07";
+const INK_MED = "#3D2010";
 const INK_MUTED = "#8B6030";
+const GOLD_BRIGHT = "#D4A843";
 
-export default function GalleryCardPage() {
-  const [lightboxIndex, setLightboxIndex] = useState(-1);
-  const images = GALLERY_IMAGES.slice(0, 12);
-
+export default function BlessingsPage() {
   return (
     <div
-      className="relative w-full flex flex-col px-7 py-9 select-none"
+      className="relative w-full flex flex-col items-center px-7 py-8 select-none"
       style={{ minHeight: 540 }}
     >
       {/* Heading */}
@@ -80,46 +19,106 @@ export default function GalleryCardPage() {
         initial={{ opacity: 0, y: -6 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.06 }}
-        style={{ color: INK_MUTED, fontSize: 9, letterSpacing: "0.3em", textTransform: "uppercase", marginBottom: 4 }}
+        style={{
+          color: INK_MUTED,
+          fontSize: 9,
+          letterSpacing: "0.3em",
+          textTransform: "uppercase",
+          marginBottom: 4,
+        }}
       >
-        Gallery
+        आशीर्वाद
       </motion.p>
+
       <motion.h2
         initial={{ opacity: 0, y: -6 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.12 }}
-        style={{ fontFamily: "var(--font-serif)", color: INK, fontSize: 26, marginBottom: 18 }}
+        style={{
+          fontFamily: "var(--font-serif)",
+          color: INK,
+          fontSize: 24,
+          marginBottom: 20,
+          textAlign: "center",
+        }}
       >
-        Memories
+        Seek Your Blessings
       </motion.h2>
 
-      {/* Photo grid */}
-      <div style={{ flex: 1, overflowY: "auto" }}>
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(3, 1fr)",
-            gap: 8,
-          }}
-        >
-          {images.map((img, i) => (
-            <PhotoTile
-              key={i}
-              img={img}
-              index={i}
-              onClick={() => setLightboxIndex(i)}
-            />
-          ))}
-        </div>
-      </div>
-
-      {lightboxIndex >= 0 && (
-        <GalleryLightbox
-          images={images}
-          index={lightboxIndex}
-          onClose={() => setLightboxIndex(-1)}
+      {/* Photo */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ delay: 0.2, duration: 0.5 }}
+        style={{
+          width: "100%",
+          maxWidth: 260,
+          borderRadius: 16,
+          overflow: "hidden",
+          border: `2px solid ${GOLD_BRIGHT}60`,
+          boxShadow: "0 8px 32px rgba(139,90,20,0.18)",
+          flexShrink: 0,
+        }}
+      >
+        <Image
+          src={COUPLE_PHOTO}
+          alt={`${WEDDING.couple.groomFull} & ${WEDDING.couple.brideFull}`}
+          width={520}
+          height={680}
+          style={{ width: "100%", height: "auto", display: "block" }}
+          unoptimized
+          priority
         />
-      )}
+      </motion.div>
+
+      {/* Gold divider */}
+      <motion.div
+        initial={{ scaleX: 0 }}
+        animate={{ scaleX: 1 }}
+        transition={{ delay: 0.45, duration: 0.5 }}
+        style={{
+          height: 1,
+          width: 120,
+          background: `linear-gradient(to right, transparent, ${GOLD_BRIGHT}, transparent)`,
+          margin: "18px 0 14px",
+          flexShrink: 0,
+        }}
+      />
+
+      {/* Blessing text */}
+      <motion.p
+        initial={{ opacity: 0, y: 8 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.5 }}
+        style={{
+          fontFamily: "var(--font-serif)",
+          fontStyle: "italic",
+          color: INK_MED,
+          fontSize: 13,
+          lineHeight: 1.75,
+          textAlign: "center",
+          maxWidth: 260,
+        }}
+      >
+        As we begin this beautiful journey together,
+        we humbly bow before you and seek your
+        love, prayers &amp; blessings.
+      </motion.p>
+
+      <motion.p
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.65 }}
+        style={{
+          color: INK_MUTED,
+          fontSize: 11,
+          marginTop: 12,
+          letterSpacing: "0.12em",
+          textAlign: "center",
+        }}
+      >
+        — {WEDDING.couple.groom} &amp; {WEDDING.couple.bride}
+      </motion.p>
     </div>
   );
 }

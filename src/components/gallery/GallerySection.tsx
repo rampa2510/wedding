@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import OrnateHeading from "@/components/ui/OrnateHeading";
 import FadeInOnScroll from "@/components/ui/FadeInOnScroll";
-import { GALLERY_IMAGES } from "@/lib/constants";
+const GALLERY_IMAGES: { src: string; alt: string }[] = [];
 import GalleryLightbox from "./GalleryLightbox";
 
 export default function GallerySection() {
