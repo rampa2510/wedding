@@ -100,7 +100,7 @@ export const WEDDING = {
   ],
 };
 
-export const COUPLE_PHOTO = "/photos/main.jpeg";
+export const COUPLE_PHOTO = "/photos/main.png";
 
 export const MUSIC_TRACKS = [
   {
