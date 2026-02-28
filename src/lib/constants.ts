@@ -63,7 +63,7 @@ export const WEDDING = {
       title: "First Talk",
       description:
         "A simple conversation that changed everything. Words flowed like they were meant to, and we knew this was the beginning of something special.",
-      image: "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=600&h=400&fit=crop",
+      image: "/photos/firstTalk.jpeg",
     },
     {
       date: "July 26",
@@ -71,7 +71,7 @@ export const WEDDING = {
       title: "First Time Meeting",
       description:
         "Hearts racing, eyes meeting for the first time in person. The world stood still as we realized the connection was even more magical face to face.",
-      image: "https://images.unsplash.com/photo-1529634597503-139d3726fed5?w=600&h=400&fit=crop",
+      image: "/photos/firstMeeting.jpeg",
     },
     {
       date: "July 27",
@@ -79,7 +79,7 @@ export const WEDDING = {
       title: "Engagement",
       description:
         "Just one day later, we knew. With blessings from both families, we said yes to forever. The rings were exchanged, and our hearts sealed the promise.",
-      image: "https://images.unsplash.com/photo-1583037189850-1921ae7c6c22?w=600&h=400&fit=crop",
+      image: "/photos/engagement.jpeg",
     },
     {
       date: "September 1",
@@ -87,7 +87,7 @@ export const WEDDING = {
       title: "First Outing Together",
       description:
         "Our first adventure as a couple. Every moment was filled with laughter, stolen glances, and the joy of building memories together.",
-      image: "https://images.unsplash.com/photo-1544078751-58fee2d8a03b?w=600&h=400&fit=crop",
+      image: "/photos/firstOuting.jpeg",
     },
     {
       date: "January 19",
@@ -95,7 +95,7 @@ export const WEDDING = {
       title: "Baraksha",
       description:
         "A beautiful ceremony bringing our families closer. Blessings were exchanged, traditions honored, and the countdown to our wedding truly began.",
-      image: "https://images.unsplash.com/photo-1604604557932-2f54e2dab258?w=600&h=400&fit=crop",
+      image: "/photos/baraksha.jpeg",
     },
   ],
 };

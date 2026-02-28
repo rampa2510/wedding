@@ -89,6 +89,21 @@ export default function LoveStoryCardPage() {
                 <h3 style={{ fontFamily: "var(--font-serif)", color: INK, fontSize: 15, lineHeight: 1.3, marginBottom: 3 }}>
                   {item.title}
                 </h3>
+                {/* Photo */}
+                {item.image && (
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    style={{
+                      width: 160,
+                      height: 100,
+                      objectFit: "cover",
+                      borderRadius: 6,
+                      marginBottom: 6,
+                      boxShadow: "0 2px 8px rgba(0,0,0,0.12)",
+                    }}
+                  />
+                )}
                 {/* Description */}
                 <p style={{ color: "#5C3518", fontSize: 11, lineHeight: 1.6 }}>
                   {item.description}
