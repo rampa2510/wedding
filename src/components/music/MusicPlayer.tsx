@@ -7,6 +7,7 @@ export default function MusicPlayer() {
   const [expanded, setExpanded] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const hasAutoplayedRef = useRef(false);
+  const wasPlayingBeforeHiddenRef = useRef(false);
 
   useEffect(() => {
     audioRef.current = new Audio("/audio/wedding-music.mp4");
@@ -45,6 +46,22 @@ export default function MusicPlayer() {
     return () => {
       events.forEach((e) => window.removeEventListener(e, startOnInteraction));
     };
+  }, []);
+
+  // Pause when tab is hidden, resume when visible
+  useEffect(() => {
+    const handleVisibilityChange = () => {
+      if (!audioRef.current) return;
+      if (document.hidden) {
+        wasPlayingBeforeHiddenRef.current = !audioRef.current.paused;
+        audioRef.current.pause();
+      } else if (wasPlayingBeforeHiddenRef.current) {
+        audioRef.current.play().catch(() => {});
+      }
+    };
+
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+    return () => document.removeEventListener("visibilitychange", handleVisibilityChange);
   }, []);
 
   const togglePlay = useCallback(() => {
